@@ -33,7 +33,7 @@ inadequate and a better standalone linter exists.
 
 ## Usage
 
-Configure the linters you want to run per filetype. For example:
+Configure the linters you want to run per file type. For example:
 
 ```lua
 require('lint').linters_by_ft = {
@@ -64,34 +64,44 @@ Other dedicated linters that are built-in are:
 | -------------------          | -------------- |
 | Set via `makeprg`            | `compiler`     |
 | [ansible-lint][ansible-lint] | `ansible_lint` |
+| [checkstyle][checkstyle]     | `checkstyle`   |
 | [chktex][20]                 | `chktex`       |
 | [clang-tidy][23]             | `clangtidy`    |
+| [clazy][30]                  | `clazy`        |
 | [clj-kondo][24]              | `clj-kondo`    |
 | [codespell][18]              | `codespell`    |
 | [cppcheck][22]               | `cppcheck`     |
-| [clazy][30]                  | `clazy`        |
-| [eslint][25]                 | `eslint`       |
+| [cspell][36]                 | `cspell`       |
+| [ESLint][25]                 | `eslint`       |
 | fennel                       | `fennel`       |
 | [Flake8][13]                 | `flake8`       |
+| [flawfinder][35]             | `flawfinder`   |
 | [Golangci-lint][16]          | `golangcilint` |
 | [hadolint][28]               | `hadolint`     |
+| [hlint][32]                  | `hlint`        |
 | [HTML Tidy][12]              | `tidy`         |
 | [Inko][17]                   | `inko`         |
+| [jshint][jshint]             | `jshint`       |
 | [Languagetool][5]            | `languagetool` |
 | [luacheck][19]               | `luacheck`     |
-| nix                          | `nix`          |
 | [markdownlint][26]           | `markdownlint` |
+| [mlint][34]                  | `mlint`        |
 | [Mypy][11]                   | `mypy`         |
+| nix                          | `nix`          |
+| [pycodestyle][pcs-docs]      | `pycodestyle`  |
+| [pydocstyle][pydocstyle]     | `pydocstyle`   |
 | [Pylint][15]                 | `pylint`       |
 | [Revive][14]                 | `revive`       |
+| [rflint][rflint]             | `rflint`       |
+| [robocop][robocop]           | `robocop`      |
 | Ruby                         | `ruby`         |
 | [Selene][31]                 | `selene`       |
 | [ShellCheck][10]             | `shellcheck`   |
 | [StandardRB][27]             | `standardrb`   |
+| [statix check][33]           | `statix`       |
 | [stylelint][29]              | `stylelint`    |
 | [Vale][8]                    | `vale`         |
 | [vint][21]                   | `vint`         |
-| [pycodestyle][pcs-docs]      | `pycodestyle`  |
 
 
 ## Custom Linters
@@ -154,9 +164,9 @@ The function takes a single argument which is the `errorformat`.
 parser = require('lint.parser').from_pattern(pattern, groups, severity_map, defaults)
 ```
 
-The function allows to parse the linter's output using a lua regex pattern.
+The function allows to parse the linter's output using a Lua regular expression pattern.
 
-- pattern: The regex pattern applied on each line of the output
+- pattern: The regular expression pattern applied on each line of the output
 - groups: The groups specified by the pattern
 
 ``` lua
@@ -303,7 +313,17 @@ nvim --headless --noplugin -u tests/minimal.vim -c "PlenaryBustedDirectory tests
 [29]: https://github.com/stylelint/stylelint
 [30]: https://github.com/KDE/clazy
 [31]: https://github.com/Kampfkarren/selene
+[32]: https://github.com/ndmitchell/hlint
+[33]: https://github.com/NerdyPepper/statix
+[34]: https://www.mathworks.com/help/matlab/ref/mlint.html
+[35]: https://github.com/david-a-wheeler/flawfinder
+[36]: https://github.com/streetsidesoftware/cspell/tree/main/packages/cspell
 [null-ls]: https://github.com/jose-elias-alvarez/null-ls.nvim
 [plenary]: https://github.com/nvim-lua/plenary.nvim
 [ansible-lint]: https://docs.ansible.com/lint.html
 [pcs-docs]: https://pycodestyle.pycqa.org/en/latest/
+[pydocstyle]: https://www.pydocstyle.org/en/stable/
+[checkstyle]: https://checkstyle.sourceforge.io/
+[jshint]: https://jshint.com/
+[rflint]: https://github.com/boakley/robotframework-lint
+[robocop]: https://github.com/MarketSquare/robotframework-robocop
